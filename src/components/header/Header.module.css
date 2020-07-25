@@ -17,3 +17,31 @@
     height: 56px;
     width: 147px
 }
+.filterImg{
+    width: 39px;
+    height: 39px;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 410px;
+    padding: 0 30px 0 30px;
+}
+
+.link{
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "San Frans", sans-serif;
+    color: white;
+}
+.link:hover{
+    text-decoration: none;
+    color: #bbbbbb
+}
+
+.activeLink{
+    text-decoration: underline;
+    color: white
+}

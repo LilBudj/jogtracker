@@ -1,0 +1,32 @@
+.jogsContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.jogContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 240px;
+    margin-bottom: 75px;
+}
+
+.jogIcon{
+    width: 87px;
+    height: 87px;
+}
+
+.jogInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: "San Frans", sans-serif;
+    font-size: 16px;
+    height: 90px;
+}
+
+.date{
+    color: #dddddd
+}
+.display{
+    color: #eeeeee;
+}

@@ -1,8 +1,9 @@
 import React from 'react';
 import style from './App.module.css'
 import Header from "./components/header/Header";
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter, Route} from "react-router-dom";
 import Login from "./components/login/Login";
+import JogContainer from "./components/jogs/JogContainer";
 
 class App extends React.Component{
 
@@ -11,7 +12,8 @@ class App extends React.Component{
         <BrowserRouter>
         <div className={style.appContainer}>
             <Header/>
-                <Login/>
+                <Route path={'/login'} render={() => <Login/>}/>
+                <Route path={'/jogs'} render={() => <JogContainer/>}/>
         </div>
         </BrowserRouter>
     )
