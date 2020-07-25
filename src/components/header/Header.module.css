@@ -7,10 +7,17 @@
     position: fixed;
     top: 0;
 }
+.postHeader{
+    display: flex;
+    background-color: #eaeaea;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    top: 116px;
+}
 
 .logo{
     margin: 30px 0 30px 37px;
-
 }
 
 .logoImg{
@@ -28,6 +35,21 @@
     align-items: center;
     width: 410px;
     padding: 0 30px 0 30px;
+}
+
+.dateContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 176px;
+    margin-right: 45px;
+    font-size: 13px;
+    color: #777;
+}
+.dateInput{
+    height: 31px;
+    width: 100px;
+    background-color: #fff;
 }
 
 .link{

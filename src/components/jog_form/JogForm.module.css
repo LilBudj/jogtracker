@@ -1,0 +1,47 @@
+.window{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #7ed321;
+    border-radius: 44px;
+    width: 503px;
+    height: 379px;
+    font-family: "San Frans", sans-serif;
+}
+
+.fieldStack{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40%;
+    width: 65%;
+    margin-top: 100px;
+}
+
+.inputField{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.jogInput{
+    outline: none;
+    border: none;
+    width: 70%;
+    height: 30px;
+    border-radius: 7px;
+    box-shadow: 0 0 5px #555;
+}
+
+.jogSubmit{
+    outline: none;
+    border-radius: 25px;
+    border: 2px solid white;
+    background-color: #7ed321;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 47px;
+    height: 42px;
+    width: 320px;
+}
