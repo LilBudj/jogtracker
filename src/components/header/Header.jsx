@@ -1,14 +1,16 @@
-import React from "react";
+import React, {useState} from "react";
 import style from './Header.module.css'
 import headerLogo from '../../assets/logobear.svg'
 import {NavLink} from "react-router-dom";
 import filter from "../../assets/filter.svg"
 import {DatePicker, KeyboardDatePicker, MuiPickersUtilsProvider} from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
-import {withStyles} from "@material-ui/core";
-import HeaderDatePicker from "../utils/HeaderDatePicker";
+import expand from "../../assets/more.svg"
 
 const Header = () => {
+
+    const [isNavExpanded, expandNav] = useState(false);
+
     return(
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <div className={style.container}>
@@ -25,25 +27,26 @@ const Header = () => {
                 <NavLink className={style.link} activeClassName={style.activeLink} to={'/form'}>
                     CONTACT US
                 </NavLink>
+                <img
+                    className={style.mobileNav}
+                    src={expand}
+                    alt={'view'}
+                    onClick={() => expandNav(!isNavExpanded)}
+                />
+                {isNavExpanded && <div className={style.navStack}>
+                    <NavLink className={style.expandedLink} activeClassName={style.activeLink} to={'/jogs'}>
+                        JOGS
+                    </NavLink>
+                    <NavLink className={style.expandedLink} activeClassName={style.activeLink} to={'/login'}>
+                        INFO
+                    </NavLink>
+                    <NavLink className={style.expandedLink} activeClassName={style.activeLink} to={'/form'}>
+                        CONTACT US
+                    </NavLink>
+                </div>}
                 <img className={style.filterImg} src={filter} alt={'filter'}/>
             </div>
         </div>
-            <div className={style.postHeader}>
-                <div className={style.dateContainer}>
-                    <span>Date from</span>
-                    <HeaderDatePicker
-                        variant={'inline'}
-                        inputVariant={'outlined'}
-                    />
-                </div>
-                <div className={style.dateContainer}>
-                    <span>Date from</span>
-                    <HeaderDatePicker
-                        variant={'inline'}
-                        inputVariant={'outlined'}
-                    />
-                </div>
-            </div>
             </MuiPickersUtilsProvider>
     )
 };

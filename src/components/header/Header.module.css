@@ -7,14 +7,7 @@
     position: fixed;
     top: 0;
 }
-.postHeader{
-    display: flex;
-    background-color: #eaeaea;
-    justify-content: center;
-    width: 100%;
-    position: fixed;
-    top: 116px;
-}
+
 
 .logo{
     margin: 30px 0 30px 37px;
@@ -27,6 +20,9 @@
 .filterImg{
     width: 39px;
     height: 39px;
+}
+.mobileNav{
+    display: none;
 }
 
 .navbar{
@@ -66,4 +62,14 @@
 .activeLink{
     text-decoration: underline;
     color: white
+}
+
+@media screen and (max-width: 480px){
+    .mobileNav{
+        display: block;
+        width: 60px
+    }
+    .link{
+        display: none;
+    }
 }

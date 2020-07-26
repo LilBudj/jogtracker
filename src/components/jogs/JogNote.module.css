@@ -9,6 +9,14 @@
     width: 240px;
     margin-bottom: 75px;
 }
+.postHeader{
+    display: flex;
+    background-color: #eaeaea;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    top: 116px;
+}
 
 .jogIcon{
     width: 87px;
@@ -22,6 +30,43 @@
     font-family: "San Frans", sans-serif;
     font-size: 16px;
     height: 90px;
+}
+
+.emptyStack{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 456px;
+    margin-top: 320px;
+}
+.emptyMessage{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 55%;
+}
+.sadImage{
+    width: 150px;
+    height: 150px;
+}
+.message{
+    font-size: 24px;
+    color: #777;
+
+}
+.jogCreate{
+    outline: none;
+    border-radius: 36px;
+    border: 2px solid #e990f9;
+    background-color: #fff;
+    color: #e990f9;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 36px;
+    height: 60px;
+    width: 249px;
 }
 
 .date{

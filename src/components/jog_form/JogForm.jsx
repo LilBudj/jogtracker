@@ -1,7 +1,12 @@
 import React from "react";
 import style from "./JogForm.module.css"
+import axios from "axios";
 
 class JogForm extends React.Component{
+
+    componentDidMount() {
+
+    }
 
     render() {
         return(
