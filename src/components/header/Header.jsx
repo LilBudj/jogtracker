@@ -6,10 +6,20 @@ import filter from "../../assets/filter.svg"
 import {DatePicker, KeyboardDatePicker, MuiPickersUtilsProvider} from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 import expand from "../../assets/more.svg"
+import {connect} from "react-redux";
+import {toggleFilter} from "../../redux/jogReducer";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 
-const Header = () => {
+const Header = (props) => {
 
     const [isNavExpanded, expandNav] = useState(false);
+    const [anchor, setAnchor] = useState(null);
+
+    const expandMenu = (e) => {
+        expandNav(!isNavExpanded);
+        setAnchor(e.currentTarget)
+    };
 
     return(
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -31,24 +41,41 @@ const Header = () => {
                     className={style.mobileNav}
                     src={expand}
                     alt={'view'}
-                    onClick={() => expandNav(!isNavExpanded)}
+                    onClick={expandMenu}
                 />
-                {isNavExpanded && <div className={style.navStack}>
-                    <NavLink className={style.expandedLink} activeClassName={style.activeLink} to={'/jogs'}>
+                <Menu
+                    open={isNavExpanded}
+                    anchorEl={anchor}
+                    onClose={() => expandNav(false)}
+                >
+                    <MenuItem>
+                        <NavLink className={style.expandedLink} activeClassName={style.expandedActiveLink} to={'/jogs'}>
                         JOGS
                     </NavLink>
-                    <NavLink className={style.expandedLink} activeClassName={style.activeLink} to={'/login'}>
+                    </MenuItem>
+                    <MenuItem>
+                        <NavLink className={style.expandedLink} activeClassName={style.expandedActiveLink} to={'/login'}>
                         INFO
                     </NavLink>
-                    <NavLink className={style.expandedLink} activeClassName={style.activeLink} to={'/form'}>
+                    </MenuItem>
+                    <MenuItem>
+                        <NavLink className={style.expandedLink} activeClassName={style.expandedActiveLink} to={'/form'}>
                         CONTACT US
                     </NavLink>
-                </div>}
-                <img className={style.filterImg} src={filter} alt={'filter'}/>
+                    </MenuItem>
+                </Menu>
+                <img
+                    onClick={props.toggleFilter}
+                    className={style.filterImg}
+                    src={filter}
+                    alt={'filter'}
+                />
             </div>
         </div>
             </MuiPickersUtilsProvider>
     )
 };
 
-export default Header
+export default connect(null, {
+    toggleFilter
+})(Header)

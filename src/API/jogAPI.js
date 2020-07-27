@@ -13,5 +13,15 @@ export const jogAPI = {
     },
     getJogs() {
         return instance.get('/data/sync')
+    },
+    postNewJog(bundle) {
+        return instance.post('/data/jog', bundle)
+    },
+    updateJog(bundle) {
+        debugger
+        return instance.put('/data/jog', {...bundle, jog_id: bundle.id})
+    },
+    deleteJog(jogId, userId) {
+        return instance.delete(`/data/jog?jog_id=${jogId}&user_id=${userId}`)
     }
 };

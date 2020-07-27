@@ -1,34 +1,96 @@
 import React from "react";
 import style from "./JogForm.module.css"
-import axios from "axios";
+import FormDatePicker from "../utils/FormDatePicker";
+import {connect} from "react-redux";
+import {submitNewJog, updateJog} from "../../redux/jogReducer";
+import {NavLink} from "react-router-dom";
 
 class JogForm extends React.Component{
 
     componentDidMount() {
-
+        if (this.props){
+            this.setState({
+                distance: this.props.distance,
+                time: this.props.time,
+                date: new Date(+this.props.date * 1000)
+            })
+        }
     }
+
+    state = {
+        distance: '',
+        time: '',
+        date: new Date()
+    };
+
+    submitJog = () => {
+        if (!!this.props.fixed){
+            this.props.setEditMode(false);
+            this.props.setAnchor(null);
+            this.props.updateJog({
+                ...this.state,
+                id: this.props.id,
+                user_id: this.props.user_id
+            })
+        }
+        else this.props.submitNewJog(this.state)
+    };
+
+    handleCancel = () => {
+        this.props.setEditMode(false);
+        this.props.setAnchor(null)
+    };
 
     render() {
         return(
-            <div className={style.window}>
+            <div style={this.props.fixed ? {position: "fixed", top: "30vh"} : {}} className={style.window}>
                 <div className={style.fieldStack}>
                     <div className={style.inputField}>
-                        <span>Time:</span>
-                        <input className={style.jogInput}/>
+                        <span>Distance:</span>
+                        <input
+                            className={style.jogInput}
+                            value={this.state.distance}
+                            onChange={(e) => this.setState({...this.state, distance: e.currentTarget.value})}
+                        />
                     </div>
                     <div className={style.inputField}>
                         <span>Time:</span>
-                        <input className={style.jogInput}/>
+                        <input
+                            className={style.jogInput}
+                            value={this.state.time}
+                            onChange={(e) => this.setState({...this.state, time: e.currentTarget.value})}
+                        />
                     </div>
                     <div className={style.inputField}>
-                        <span>Time:</span>
-                        <input className={style.jogInput}/>
+                        <span>Date:</span>
+                        <FormDatePicker
+                            variant={'inline'}
+                            inputVariant={'outlined'}
+                            format={"dd/MM/yyyy"}
+                            value={this.state.date}
+                            onChange={(date) => this.setState({...this.state, date})}
+                        />
                     </div>
                 </div>
-                <button className={style.jogSubmit}>Save</button>
+                <NavLink to={'/jogs'}>
+                    <button
+                        className={style.jogSubmit}
+                        onClick={this.submitJog}
+                    >Save
+                    </button>
+                </NavLink>
+                {!!this.props.fixed && <button
+                    className={style.jogSubmit}
+                    onClick={this.handleCancel}
+                >
+                    Cancel
+                </button>}
             </div>
         )
     }
 }
 
-export default JogForm
+export default connect(null, {
+    submitNewJog,
+    updateJog
+})(JogForm)

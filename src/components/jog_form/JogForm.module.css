@@ -6,7 +6,7 @@
     background-color: #7ed321;
     border-radius: 44px;
     width: 503px;
-    height: 379px;
+    min-height: 379px;
     font-family: "San Frans", sans-serif;
 }
 
@@ -32,6 +32,8 @@
     height: 30px;
     border-radius: 7px;
     box-shadow: 0 0 5px #555;
+    font-weight: 700;
+    font-size: 14px;
 }
 
 .jogSubmit{

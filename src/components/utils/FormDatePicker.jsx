@@ -5,19 +5,22 @@ import DateFnsUtils from "@date-io/date-fns";
 
 const styles = (theme) => ({
     input: {
+        boxShadow: '0 0 5px #555',
+        width: '232px',
         height: '31px',
         backgroundColor: '#fff',
+        fontWeight: 700,
         fontFamily: [
             'San Frans',
             'sans-serif'
         ].join(','),
-        fontSize: '13px'
+        fontSize: '14px'
     }
 });
 
 
 
-const HeaderDatePicker = ({classes, ...rest}) => (
+const FormDatePicker = ({classes, ...rest}) => (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <DatePicker
             {...rest}
@@ -26,4 +29,4 @@ const HeaderDatePicker = ({classes, ...rest}) => (
     </MuiPickersUtilsProvider>
 );
 
-export default withStyles(styles)(HeaderDatePicker)
+export default withStyles(styles)(FormDatePicker)
