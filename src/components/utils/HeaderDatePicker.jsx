@@ -1,6 +1,6 @@
 import React from "react";
-import {createStyles, withStyles} from "@material-ui/core";
-import {DatePicker, KeyboardDatePicker, MuiPickersUtilsProvider} from "@material-ui/pickers";
+import {withStyles} from "@material-ui/core";
+import {DatePicker, MuiPickersUtilsProvider} from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 
 const styles = (theme) => ({

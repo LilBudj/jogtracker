@@ -34,7 +34,7 @@ const Header = (props) => {
                 <NavLink className={style.link} activeClassName={style.activeLink} to={'/info'}>
                     INFO
                 </NavLink>
-                <NavLink className={style.link} activeClassName={style.activeLink} to={'/login'}>
+                <NavLink className={style.link} activeClassName={style.activeLink} to={'/contact'}>
                     CONTACT US
                 </NavLink>
                 <img
@@ -59,7 +59,7 @@ const Header = (props) => {
                     </NavLink>
                     </MenuItem>
                     <MenuItem>
-                        <NavLink className={style.expandedLink} activeClassName={style.expandedActiveLink} to={'/login'}>
+                        <NavLink className={style.expandedLink} activeClassName={style.expandedActiveLink} to={'/contact'}>
                         CONTACT US
                     </NavLink>
                     </MenuItem>
