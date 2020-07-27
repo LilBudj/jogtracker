@@ -30,6 +30,7 @@ class JogForm extends React.Component{
             this.props.setAnchor(null);
             this.props.updateJog({
                 ...this.state,
+                date: Date.parse(this.state.date)/1000,
                 id: this.props.id,
                 user_id: this.props.user_id
             })
