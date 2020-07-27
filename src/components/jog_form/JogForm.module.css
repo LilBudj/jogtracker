@@ -6,8 +6,15 @@
     background-color: #7ed321;
     border-radius: 44px;
     width: 503px;
-    min-height: 379px;
+    height: 379px;
     font-family: "San Frans", sans-serif;
+}
+
+.closeContainer{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 27px;
+    width: 90%
 }
 
 .fieldStack{
@@ -16,7 +23,6 @@
     justify-content: space-between;
     height: 40%;
     width: 65%;
-    margin-top: 100px;
 }
 
 .inputField{
@@ -46,4 +52,20 @@
     margin-bottom: 47px;
     height: 42px;
     width: 320px;
+}
+
+@media screen and (max-width: 600px){
+    .window{
+        width: 300px;
+        height: 228px;
+    }
+    .jogInput{
+        width: 50%;
+        height: 24px;
+    }
+    .jogSubmit{
+        width: 190px;
+        height: 34px;
+        margin-bottom: 28px;
+    }
 }

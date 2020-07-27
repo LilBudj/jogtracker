@@ -4,11 +4,12 @@ import FormDatePicker from "../utils/FormDatePicker";
 import {connect} from "react-redux";
 import {submitNewJog, updateJog} from "../../redux/jogReducer";
 import {NavLink} from "react-router-dom";
+import close from "../../assets/close.svg"
 
 class JogForm extends React.Component{
 
     componentDidMount() {
-        if (this.props){
+        if (this.props.fixed){
             this.setState({
                 distance: this.props.distance,
                 time: this.props.time,
@@ -37,13 +38,25 @@ class JogForm extends React.Component{
     };
 
     handleCancel = () => {
-        this.props.setEditMode(false);
-        this.props.setAnchor(null)
+        if (!!this.props.fixed){
+            this.props.setEditMode(false);
+            this.props.setAnchor(null)
+        }
     };
 
     render() {
         return(
             <div style={this.props.fixed ? {position: "fixed", top: "30vh"} : {}} className={style.window}>
+                <div className={style.closeContainer}>
+                <NavLink to={'/jogs'}>
+                    <img
+                    onClick={this.handleCancel}
+                    src={close}
+                    style={{color: 'white'}}
+                    alt={'close'}
+                />
+                </NavLink>
+                </div>
                 <div className={style.fieldStack}>
                     <div className={style.inputField}>
                         <span>Distance:</span>
@@ -79,12 +92,6 @@ class JogForm extends React.Component{
                     >Save
                     </button>
                 </NavLink>
-                {!!this.props.fixed && <button
-                    className={style.jogSubmit}
-                    onClick={this.handleCancel}
-                >
-                    Cancel
-                </button>}
             </div>
         )
     }

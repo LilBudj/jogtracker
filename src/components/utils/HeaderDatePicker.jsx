@@ -11,7 +11,11 @@ const styles = (theme) => ({
             'San Frans',
             'sans-serif'
         ].join(','),
-        fontSize: '13px'
+        fontSize: '13px',
+        [theme.breakpoints.down('sm')]: {
+            height: '28px',
+            width: '96px'
+        }
     }
 });
 

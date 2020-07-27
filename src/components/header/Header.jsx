@@ -3,7 +3,7 @@ import style from './Header.module.css'
 import headerLogo from '../../assets/logobear.svg'
 import {NavLink} from "react-router-dom";
 import filter from "../../assets/filter.svg"
-import {DatePicker, KeyboardDatePicker, MuiPickersUtilsProvider} from "@material-ui/pickers";
+import {MuiPickersUtilsProvider} from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 import expand from "../../assets/more.svg"
 import {connect} from "react-redux";
@@ -31,10 +31,10 @@ const Header = (props) => {
                 <NavLink className={style.link} activeClassName={style.activeLink} to={'/jogs'}>
                     JOGS
                 </NavLink>
-                <NavLink className={style.link} activeClassName={style.activeLink} to={'/login'}>
+                <NavLink className={style.link} activeClassName={style.activeLink} to={'/info'}>
                     INFO
                 </NavLink>
-                <NavLink className={style.link} activeClassName={style.activeLink} to={'/form'}>
+                <NavLink className={style.link} activeClassName={style.activeLink} to={'/login'}>
                     CONTACT US
                 </NavLink>
                 <img
@@ -54,12 +54,12 @@ const Header = (props) => {
                     </NavLink>
                     </MenuItem>
                     <MenuItem>
-                        <NavLink className={style.expandedLink} activeClassName={style.expandedActiveLink} to={'/login'}>
+                        <NavLink className={style.expandedLink} activeClassName={style.expandedActiveLink} to={'/info'}>
                         INFO
                     </NavLink>
                     </MenuItem>
                     <MenuItem>
-                        <NavLink className={style.expandedLink} activeClassName={style.expandedActiveLink} to={'/form'}>
+                        <NavLink className={style.expandedLink} activeClassName={style.expandedActiveLink} to={'/login'}>
                         CONTACT US
                     </NavLink>
                     </MenuItem>

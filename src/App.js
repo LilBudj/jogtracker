@@ -6,6 +6,7 @@ import Login from "./components/login/Login";
 import JogContainer from "./components/jogs/JogContainer";
 import JogForm from "./components/jog_form/JogForm";
 import InitPage from "./components/login/InitPage";
+import Info from "./components/about/Info";
 
 class App extends React.Component {
 
@@ -18,6 +19,7 @@ class App extends React.Component {
                     <Route path={'/login'} render={() => <Login/>}/>
                     <Route path={'/jogs'} render={() => <JogContainer/>}/>
                     <Route path={'/form'} render={() => <JogForm/>}/>
+                    <Route path={'/info'} render={() => <Info/>}/>
                 </div>
             </BrowserRouter>
         )

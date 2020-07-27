@@ -11,3 +11,9 @@
     width: 100%;
     min-height: calc(100vh - 116px)
 }
+
+@media screen and (max-width: 600px){
+    .content{
+        min-height: 100vh;
+    }
+}
