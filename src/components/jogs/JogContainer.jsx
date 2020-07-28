@@ -56,7 +56,7 @@ class JogContainer extends React.Component{
                         />
                     </div>
                     <div className={style.dateContainer}>
-                        <span>Date from</span>
+                        <span>Date to</span>
                         <HeaderDatePicker
                             variant={'inline'}
                             inputVariant={'outlined'}
