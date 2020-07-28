@@ -9,7 +9,7 @@ class InitPage extends React.Component{
     componentDidMount() {
         let accessToken = localStorage.getItem('accessToken');
         let tokenExpirationDate = !!accessToken ?
-            new Date((+JSON.parse(accessToken).date + +JSON.parse(accessToken).expires) * 1000)
+            new Date((+JSON.parse(accessToken).date + (+JSON.parse(accessToken).expires / 1000)) * 1000)
             :
             new Date(null);
         if (accessToken && (tokenExpirationDate > new Date())) {
